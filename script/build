@@ -1,0 +1,8 @@
+#!/bin/bash
+
+script/bootstrap
+gox \
+  -output="build/quartermaster_{{.OS}}_{{.Arch}}" \
+  -os="darwin linux windows" \
+  ./...
+echo "Built $(go run quartermaster.go --version)"
